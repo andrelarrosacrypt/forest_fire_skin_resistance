@@ -1,33 +1,24 @@
 # forest_fire_skin_resistence
-python mesa example forest_fire modified<br />
-Original availible at https://github.com/projectmesa/mesa/tree/main/examples/forest_fire#forest_fireserverpy
+Python mesa example forest_fire modificado<br />
+Original disponível em https://github.com/projectmesa/mesa/tree/main/examples/forest_fire#forest_fireserverpy
 
-## Summary
+## Hipótese
 
-The forest fire model is a simple, cellular automaton simulation of a fire spreading through a forest. The forest is a grid of cells, each of which can either be empty or contain a tree. Trees can be unburned (fine), on fire (on fire), or burned(burned out). The fire spreads from every on-fire tree to unburned neighbors if it can surpass the neighbor's skin resistence (random number greater or equal to skin resistence); the on-fire tree then becomes burned. This continues until the fire dies out.
+A modificação consiste na adição de uma nova variável (Tree skin thickness) que representa a resistência ao fogo da casaca da árvore. Quanto maior a resistência menor a chance de uma árvore pegar fogo, ogo menor a chence das chamas se espalharem. Com essa nova variável, podemos definir a resistência das árvore (número inteiro de 0 a 10) ármazenada no atributo "skin". Com esse atributo, modificamos a função "step" em "agent.py" para que a propagação do fogo não só dependa da proximidade entre uma árvore e outra, mas também leva em consideração a possibilidade do fogo não ser capaz de queimar uma árvore mesmo ela estando perto o sufucuente.
 
-## How to Run
-To run the model interactively, run mesa runserver in this directory. e.g.
+## Sumário
 
+Modelo que simula a propagação de um incêndio em uma floresta. O esquema apresenta a dorma de grid of cells, cada célula pode ter ou não uma árvore. Cada árvore está não queimada (Fine), queimando (On Fire) ou queimada (Burned Out). O fogo se espalha de uma árvore que está em chamas (On Fire) para uma árvore que esteja intacta (Fine) somente se vencer a resistência da casaca da árvore intacta (número randômico maior ou igual ao valor de resistência (skin) ); as árvores que pegam fogo eventualmente são totalmente consumidas (On Fire -> Burned Out). O processo continua até todas as árvores em chamas (On Fire) se transformarem em totalmente queimadas (Burned Out).
+
+## Como rodar
+
+No diretório forest_fire, utilize o comando 
     $ mesa runserver
-Then open your browser to http://127.0.0.1:8521/ and press Reset, then Run.
+Abra o browser em http://127.0.0.1:8521/.
+Defina os valores das variáveis "Tree skin thickness" e "Tree density", precione "Reset" e em seguida "Start".
 
-To view and run the model analyses, use the Forest Fire Model Notebook.
+## Arquivos CSV
 
-## Files
-forest_fire/model.py<br />
-This defines the model. There is one agent class, TreeCell. Each TreeCell object which has (x, y) coordinates on the grid, and its condition is Fine by default. Every step, if the tree's condition is On Fire, it spreads the fire to any Fine trees in its Von Neumann neighborhood before changing its own condition to Burned Out.
-
-The ForestFire class is the model container. It is instantiated with width and height parameters which define the grid size, and density, which is the probability of any given cell having a tree in it. When a new model is instantiated, cells are randomly filled with trees with probability equal to density. All the trees in the left-hand column (x=0) are set to On Fire.
-
-Each step of the model, trees are activated in random order, spreading the fire and burning out. This continues until there are no more trees on fire -- the fire has completely burned out.
-
-forest_fire/server.py<br />
-This code defines and launches the in-browser visualization for the ForestFire model. It includes the forest_fire_draw method, which takes a TreeCell object as an argument and turns it into a portrayal to be drawn in the browser. Each tree is drawn as a rectangle filling the entire cell, with a color based on its condition. Fine trees are green, On Fire trees red, and Burned Out trees are black.
-
-## Further Reading
-Read about the Forest Fire model on Wikipedia: http://en.wikipedia.org/wiki/Forest-fire_model
-
-This is directly based on the comparable NetLogo model:
-
-Wilensky, U. (1997). NetLogo Fire model. http://ccl.northwestern.edu/netlogo/models/Fire. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
+O progrma gera dois arquivos .csv, "agent_var.csv" e "model_var.csv".
+"agent_var.csv" armazena o estado dos agentes (Fine, On Fire ou Burned Out) a cada iteração.
+"model_var.csv" armazena a porcentagem das árvores que sobreviveram e impediram o aumento da queimada porque sua resistência a protegeu.
