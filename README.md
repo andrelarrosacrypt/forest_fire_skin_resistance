@@ -12,13 +12,13 @@ Modelo que simula a propagação de um incêndio em uma floresta. O esquema apre
 
 ## Como rodar
 
-No diretório forest_fire, utilize o comando 
+No diretório forest_fire, utilize o comando:<br />
     $ mesa runserver
-Abra o browser em http://127.0.0.1:8521/.
+Abra o browser em http://127.0.0.1:8521/.<br />
 Defina os valores das variáveis "Tree skin thickness" e "Tree density", precione "Reset" e em seguida "Start".
 
 ## Arquivos CSV
 
-O progrma gera dois arquivos .csv, "agent_var.csv" e "model_var.csv".
-"agent_var.csv" armazena o estado dos agentes (Fine, On Fire ou Burned Out) a cada iteração.
+O progrma gera dois arquivos .csv, "agent_var.csv" e "model_var.csv".<br />
+"agent_var.csv" armazena o estado dos agentes (Fine, On Fire ou Burned Out) a cada iteração.<br />
 "model_var.csv" armazena a porcentagem das árvores que sobreviveram e impediram o aumento da queimada porque sua resistência a protegeu.
