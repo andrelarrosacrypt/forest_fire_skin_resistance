@@ -4,7 +4,7 @@ Original disponível em https://github.com/projectmesa/mesa/tree/main/examples/f
 
 ## Hipótese
 
-A modificação consiste na adição de uma nova variável (Tree skin thickness) que representa a resistência ao fogo da casaca da árvore. Quanto maior a resistência menor a chance de uma árvore pegar fogo, ogo menor a chence das chamas se espalharem. Com essa nova variável, podemos definir a resistência das árvore (número inteiro de 0 a 10) ármazenada no atributo "skin". Com esse atributo, modificamos a função "step" em "agent.py" para que a propagação do fogo não só dependa da proximidade entre uma árvore e outra, mas também leva em consideração a possibilidade do fogo não ser capaz de queimar uma árvore mesmo ela estando perto o sufucuente.
+A modificação consiste na adição de uma nova variável (Tree skin thickness) que representa a resistência ao fogo da casaca da árvore. Quanto maior a resistência menor a chance de uma árvore pegar fogo, ogo menor a chence das chamas se espalharem. Com essa nova variável, podemos definir a resistência das árvore (número inteiro de 0 a 10) armazenada no atributo "skin". Com esse atributo, modificamos a função "step" em "agent.py" para que a propagação do fogo não só dependa da proximidade entre uma árvore e outra, mas também leva em consideração a possibilidade do fogo não ser capaz de queimar uma árvore mesmo ela estando perto o sufucuente.
 
 ## Sumário
 
