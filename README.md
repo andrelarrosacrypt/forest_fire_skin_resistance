@@ -13,7 +13,7 @@ Modelo que simula a propagação de um incêndio em uma floresta. O esquema apre
 ## Como rodar
 
 No diretório forest_fire, utilize o comando:<br />
-    $ mesa runserver
+    `$ mesa runserver`<br />
 Abra o browser em http://127.0.0.1:8521/.<br />
 Defina os valores das variáveis "Tree skin thickness" e "Tree density", precione "Reset" e em seguida "Start".
 
