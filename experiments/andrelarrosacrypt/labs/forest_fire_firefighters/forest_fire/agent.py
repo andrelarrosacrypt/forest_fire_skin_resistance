@@ -8,6 +8,7 @@ class TreeCell(Agent):
     """
     A tree cell.
 
+
     Attributes:
         x, y: Grid coordinates
         condition: Can be "Fine", "On Fire", or "Burned Out"
