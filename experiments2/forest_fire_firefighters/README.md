@@ -4,7 +4,7 @@ Original disponível em https://github.com/andrelarrosacrypt/forest_fire_skin_re
 
 ## Hipótese
 
-Qaunto mais rápido o tempo de resposta dos bombeiros, menos o fogo irá se espelhar.
+Qaunto mais rápido o tempo de resposta dos bombeiros, menos o fogo irá se espalhar.
 
 ## Sumário
 
