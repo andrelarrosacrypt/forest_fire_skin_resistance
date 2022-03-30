@@ -4,7 +4,7 @@ from mesa.visualization.UserParam import UserSettableParameter
 
 from .model import ForestFire
 
-COLORS = {"Fine": "#00AA00", "On Fire": "#880000", "Burned Out": "#000000"}
+COLORS = {"Fine": "#00AA00", "On Fire": "#880000", "Burned Out": "#000000", "Firefighters": "#ffff00"}  # bombeiros : amarelo
 
 
 def forest_fire_portrayal(tree):
@@ -31,7 +31,9 @@ model_params = {
     "width": 100,
     "density": UserSettableParameter("slider", "Tree density", 0.65, 0.01, 1.0, 0.01),
     # paramentro resistencia da arvore ao fogo (casca)
-    "skin": UserSettableParameter("slider", "Tree skin thickness", 5.0, 0.0, 10.0, 1.0)
+    "skin": UserSettableParameter("slider", "Tree skin thickness", 5.0, 0.0, 10.0, 1.0),
+    # paramentro de tempo de resposta dos bombeiros
+    "firefighters": UserSettableParameter("slider", "Firefighters response time", 50.0, 0.0, 100.0, 1.0),
 }
 server = ModularServer(
     ForestFire, [canvas_element, tree_chart, pie_chart], "Forest Fire", model_params
